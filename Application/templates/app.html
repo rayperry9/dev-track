@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Blood Pressure Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+
+    <style>
+      .alert {
+        background: transparent;
+        padding: 1rem;
+        border-radius: 5px;
+        color: white;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Blood Pressure Calculator</h3>
+    </div>
+
+    <!-- Form -->
+    <div class="container"`>
+      <form action="/send" method="POST">
+        <label for="systolic_value">Systolic Value</label>
+        <input
+          type="text"
+          placeholder="Systolic Value"
+          class="u-full-width"
+          name="systolic_value"
+        />
+
+        <label for="diastolic_value">Diastolic Value</label>
+        <input
+          type="text"
+          placeholder="Diastolic Value"
+          class="u-full-width"
+          name="diastolic_value"
+        />
+
+        <input type="submit" value="Calculate Blood Pressure" id="calc_btn" />
+        <br />
+        <div class="alert" id="alert">
+          {{ bprisk }}
+        </div>
+      </form>
+    </div>
+    <script>
+            function alertColor () {
+
+               const text = document.getElementById("alert").textContent.trim();
+
+              if (text == "High blood pressure") {
+                  document.getElementById("alert").style.backgroundColor="#f44336";
+              } else if (text == "Pre-high blood pressure") {
+                  document.getElementById("alert").style.backgroundColor="#ff9800";
+              } else if (text == "Ideal blood pressure") {
+                  document.getElementById("alert").style.backgroundColor="#4CAF50";
+              } else if (text == "Low blood pressure") {
+                  document.getElementById("alert").style.backgroundColor="#2196F3";
+              } else if (text == "Invalid Systolic Value, please re-enter value.") {
+                  document.getElementById("alert").style.backgroundColor="#2196F3";
+              } else if (text == "Invalid Diastolic Value, please re-enter value.") {
+                  document.getElementById("alert").style.backgroundColor="#2196F3";
+              } else if (text == "Please only enter numbers") {
+                  document.getElementById("alert").style.backgroundColor="#2196F3";
+              }
+
+            }
+            window.onload = alertColor();
+    </script>
+  </body>
+</html>
