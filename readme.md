@@ -14,8 +14,8 @@ Let me know if there is anything here that may not work for you.
 3. Create VPC, Security Groups, EKS Cluster, etc, and deploy a web application using terraform from the created management host.
 
 ## Pull git repository
-
 ```
+git@github.com:rayperry9/dev-track.git
 ```
 
 ## SKIP: Build & Push Docker Image
